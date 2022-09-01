@@ -33,7 +33,7 @@ class CharacterItem extends StatelessWidget {
                 image: character.image,
                 fit: BoxFit.cover,
               )
-                  : Image.asset('assets/images/placeholder.jpg'),
+                  : Image.asset('assets/images/mm.png'),
             ),
           ),
           footer: Container(
