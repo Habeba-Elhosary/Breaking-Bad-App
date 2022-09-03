@@ -1,11 +1,11 @@
 import 'package:breakingbad/router.dart';
 import 'package:flutter/material.dart';
 void main (){
-  runApp(breakingbad(appRouter: AppRouter(),));
+  runApp(BreakingBad(appRouter: AppRouter(),));
 }
-class breakingbad extends StatelessWidget {
+class BreakingBad extends StatelessWidget {
   final AppRouter appRouter;
-  const breakingbad({Key? key , required this.appRouter}) : super(key: key);
+  const BreakingBad({Key? key , required this.appRouter}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

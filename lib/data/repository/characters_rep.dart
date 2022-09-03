@@ -1,11 +1,18 @@
-import 'package:breakingbad/data/models/characters.dart';
-import 'package:breakingbad/data/web_services/characters_web.dart';
-class Charactersrepository{
-   late final Characterswebservices characterswebservices ;
-   Charactersrepository(this.characterswebservices);
+import '../models/characters.dart';
+import '../models/quotes.dart';
+import '../web_services/characters_web.dart';
 
-   Future<List<dynamic>> Getallcharacters() async{
-     final characters = await characterswebservices.Getallcharacters();
-     return characters.map((character) =>  character.fromJson(character)).toList();
-   }
+class CharactersRepository {
+  final CharactersWebServices charactersWebServices;
+
+  CharactersRepository(this.charactersWebServices);
+
+  Future<List<dynamic>> getAllCharacters() async {
+    final characters = await charactersWebServices.getAllCharacters();
+    return characters.map((character) => Data.fromJson(character)).toList();
+  }
+  Future<List<Quote>> getAllCharactersQuotes(String charName ) async {
+    final quotes = await charactersWebServices.getAllCharactersQuotes(charName);
+    return quotes.map((charQuotes) => Quote.fromJson(charQuotes)).toList();
+  }
 }

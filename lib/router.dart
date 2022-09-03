@@ -6,24 +6,30 @@ import 'package:breakingbad/presentation/screens/characters.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'constants/strings.dart';
+import 'data/models/characters.dart';
+
 class AppRouter {
-  late Charactersrepository charactersrepository ;
+  late CharactersRepository charactersRepository ;
   late CharactersCubit charactersCubit ;
   AppRouter(){
-    charactersrepository = Charactersrepository(Characterswebservices());
-    charactersCubit = CharactersCubit(charactersrepository) ;
+    charactersRepository = CharactersRepository(CharactersWebServices());
+    charactersCubit = CharactersCubit(charactersRepository) ;
   }
   
   Route ? generateRoute  (RouteSettings settings){
     switch(settings.name) {
-      case charactersscreen :
+      case charactersScreen :
         return MaterialPageRoute(builder:(_) => BlocProvider(
             create: ( BuildContext context) => charactersCubit,
-            child : characters()
+            child : const CharactersScreen()
         ),
       );
-      case charactersscreen :
-        return MaterialPageRoute(builder:(_) => characterDetails());
+      case characterDetailsScreen :
+       final character = settings.arguments as Data ;
+        return MaterialPageRoute(builder:(_) => BlocProvider(
+          create:(BuildContext context) => CharactersCubit(charactersRepository),
+            child: CharacterDetailsScreen(character:character)));
     }
+    return null;
   }
 }

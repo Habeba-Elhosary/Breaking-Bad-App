@@ -4,9 +4,13 @@ part of 'characters_cubit.dart';
 abstract class CharactersState {}
 
 class CharactersInitial extends CharactersState {}
-class Charactersloaded extends CharactersState {
+class CharactersLoaded extends CharactersState {
   late final List <dynamic> characters;
-  Charactersloaded(this.characters);
+  CharactersLoaded(this.characters);
+}
+class QuotesLoaded extends CharactersState {
+  final List <Quote> quotes;
+  QuotesLoaded(this.quotes);
 }
 
 

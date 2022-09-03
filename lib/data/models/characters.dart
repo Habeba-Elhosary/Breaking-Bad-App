@@ -1,25 +1,26 @@
- class characters {
-  late int char_id;
+
+class Data {
+  late int charId;
   late String name;
-  late String nickname;
+  late String nickName;
   late String image;
-  late String deadoralive;
-  late String actorname;
+  late String deadOrAlive;
+  late String actorName;
   late List <dynamic> jobs;
-  late List <dynamic> appearanceofseasons;
-  late List <dynamic> categoryofseries;
-  late List <dynamic> bettercallsaulappearance;
-  
-  characters.fromJson(Map < String , dynamic> json){
-    char_id = json['char_id'];
+  late List <dynamic> appearanceOfSeasons;
+  late String categoryOfSeries;
+  late List <dynamic> betterCallSaulAppearance;
+
+  Data.fromJson(Map < String , dynamic> json){
+    charId = json['char_id'];
     name = json['name'];
-    nickname = json['nickname'];
+    nickName = json['nickname'];
     image = json['img'];
-    deadoralive = json['status'];
-    actorname = json['portrayed'];
+    deadOrAlive = json['status'];
+    actorName = json['portrayed'];
     jobs = json['occupation'];
-    appearanceofseasons = json['appearance'];
-    categoryofseries = json['category'];
-    bettercallsaulappearance = json['better_call_saul_appearance'];
+    appearanceOfSeasons = json['appearance'];
+    categoryOfSeries = json['category'];
+    betterCallSaulAppearance = json['better_call_saul_appearance'];
   }
 }
